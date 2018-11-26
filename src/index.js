@@ -1,18 +1,12 @@
 const { GraphQLServer } = require('graphql-yoga');
+const { Prisma } = require('prisma-binding');
 
-let links = [{
-    id: 'link-0',
-    url: 'www.howtographql.com',
-    description: 'Fullstack tutorial for GraphQL'
-}]
-
-let idCount = links.length
 
 const resolvers = {
     Query: {
         info: () => `This is the API of hackernews`,
-        links: () => {
-            return links
+        links: (root, args, context, info) => {
+            return context.db.query.links({}, info)
         }
     },
 
@@ -23,21 +17,29 @@ const resolvers = {
     },
     Mutation: {
         // 2
-        post: (root, args) => {
-            const link = {
-                id: `link-${idCount++}`,
-                description: args.description,
-                url: args.url,
-            }
-            links.push(link)
-            return link
+        post: (root, args, context, info) => {
+            return context.db.mutation.createLink({
+                data: {
+                    url: args,url,
+                    description: args.description
+                },
+            }, info)
         }
     },
 }
 
 const server = new GraphQLServer({
     typeDefs: './src/schema.graphql',
-    resolvers
+    resolvers,
+    context: req => ({
+        ...req,
+        db: new Prisma({
+            typeDefs: 'src/generated/prisma.graphql',
+            endpoint: 'https://us1.prisma.sh/bartosian1989/hacker/dev',
+            secret: 'mysecret123',
+            debug: true,
+        })
+    })
 })
 
 server.start(() => console.log('Server is running om 4000 port'))
