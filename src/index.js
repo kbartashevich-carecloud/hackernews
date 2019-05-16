@@ -27,4 +27,6 @@ const server = new GraphQLServer({
     })
 })
 
+console.log('Errors handler');
+
 server.start(() => console.log('Server is running om 4000 port'))
