@@ -29,7 +29,6 @@ type User {
     links: [Link!]!
 }
 
-
 type User {
     id: ID!
     name: String!
@@ -37,9 +36,8 @@ type User {
     links: [Link!]!
 }
 
-type User {
-    id: ID!
-    name: String!
-    email: String!
-    links: [Link!]!
+type AuthPayload {
+    token: String
+    user: User
 }
+
