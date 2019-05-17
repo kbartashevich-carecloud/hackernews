@@ -17,3 +17,5 @@ module.exports = {
     APP_SECRET,
     getUserId
 }
+
+console.log('Hello world');
