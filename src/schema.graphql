@@ -22,15 +22,14 @@ type AuthPayload {
     user: User
 }
 
-type User {
-    id: ID!
-    name: String!
-    email: String!
-    links: [Link!]!
-}
-
-type AuthPayload {
+type Man {
     token: String
     user: User
 }
+
+type WoMan {
+    token: String
+    user: User
+}
+
 
