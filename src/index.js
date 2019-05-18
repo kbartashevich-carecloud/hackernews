@@ -3,14 +3,12 @@ const { Prisma } = require('prisma-binding');
 const Query = require('./resolvers/Query')
 const Mutation = require('./resolvers/Mutation')
 const AuthPayload = require('./resolvers/AuthPayload')
-const Subscription = require('./resolvers/Subscription')
 
 
 const resolvers  = {
     Query,
     Mutation,
-    AuthPayload,
-    Subscription
+    AuthPayload
 }
 
 const server = new GraphQLServer({
@@ -26,5 +24,6 @@ const server = new GraphQLServer({
         })
     })
 })
+dfdsfsdfsd
 
 server.start(() => console.log('Server is running om 4000 port'))
