@@ -32,4 +32,10 @@ type SpiderMan {
     user: User
 }
 
+type SpiderMan {
+    token: String
+    user: User
+}
 
+
+hfhddgfgdgdgdgd
