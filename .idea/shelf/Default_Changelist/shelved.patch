@@ -1,0 +1,18 @@
+Index: src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const { GraphQLServer } = require('graphql-yoga');\nconst { Prisma } = require('prisma-binding');\nconst Query = require('./resolvers/Query')\nconst Mutation = require('./resolvers/Mutation')\nconst AuthPayload = require('./resolvers/AuthPayload')\nconst Subscription = require('./resolvers/Subscription')\n\n\nconst resolvers  = {\n    Query,\n    Mutation,\n    AuthPayload,\n    Subscription\n}\n\nconst server = new GraphQLServer({\n    typeDefs: './src/schema.graphql',\n    resolvers,\n    context: req => ({\n        ...req,\n        db: new Prisma({\n            typeDefs: 'src/generated/prisma.graphql',\n            endpoint: 'https://us1.prisma.sh/bartosian1989/hacker/dev',\n            secret: 'mysecret123',\n            debug: true,\n        })\n    })\n})\n\nconsole.log('Errors handler');\n\nserver.start(() => console.log('Server is running om 4000 port'))
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/index.js	(revision 16fc5079e2f71941ce288e3d73dba54f89a6ce19)
++++ src/index.js	(date 1558030994000)
+@@ -27,6 +27,6 @@
+     })
+ })
+ 
+-console.log('Errors handler');
++console.log('Time to test everything!');
+ 
+ server.start(() => console.log('Server is running om 4000 port'))
+\ No newline at end of file

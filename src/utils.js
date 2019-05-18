@@ -10,10 +10,12 @@ function getUserId(context) {
         return userId
     }
 
-    throw new Error('not authenticated')
+    throw new Error('not authenticated user')
 }
 
 module.exports = {
     APP_SECRET,
     getUserId
 }
+
+console.log('Hello world');
