@@ -28,7 +28,7 @@ type Man {
 }
 
 type WoMan {
-    token: String
+    token: Number
     user: User
 }
 
