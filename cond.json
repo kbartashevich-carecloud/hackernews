@@ -1,0 +1,296 @@
+{
+  "updateTime": 1558377087159,
+  "name": "create_referral_request_document",
+  "description": "Create referral request document",
+  "version": 1,
+  "tasks": [
+    {
+      "name": "Fork Task",
+      "taskReferenceName": "get_document_inputs",
+      "type": "FORK_JOIN",
+      "forkTasks": [
+        [
+          {
+            "name": "Rest Task",
+            "taskReferenceName": "get_referral_request",
+            "description": "Read a referral",
+            "inputParameters": {
+              "http_request": {
+                "body": {
+                  "variables": {
+                    "reference": "ReferralRequest/${workflow.input.resourceId}"
+                  },
+                  "query": "query referralRequest($reference: String!) { referralRequest(reference: $reference) { json } }"
+                },
+                "uri": "http://clinical-care-provision.service.consul",
+                "method": "POST",
+                "headers": {
+                  "context": "${workflow.input.context}"
+                }
+              }
+            },
+            "type": "HTTP",
+            "startDelay": 0,
+            "optional": false
+          },
+          {
+            "name": "Fork Task",
+            "taskReferenceName": "get_referral_request_resources",
+            "type": "FORK_JOIN",
+            "forkTasks": [
+              [
+                {
+                  "name": "Rest Task",
+                  "taskReferenceName": "get_referral_request_properties",
+                  "inputParameters": {
+                    "http_request": {
+                      "body": {
+                        "variables": {
+                          "reference": {
+                            "subject": "ReferralRequest/${workflow.input.resourceId}",
+                            "code": "OrderProperties"
+                          }
+                        },
+                        "query": "query getOrderProperties($reference: BasicWhereInput) { basics(where: $reference, size: 1) { json } }"
+                      },
+                      "uri": "http://foundation-other.service.consul",
+                      "method": "POST",
+                      "headers": {
+                        "context": "${workflow.input.context}"
+                      }
+                    }
+                  },
+                  "type": "HTTP",
+                  "startDelay": 0,
+                  "optional": false
+                }
+              ],
+              [
+                {
+                  "name": "Rest Task",
+                  "taskReferenceName": "get_referral_request_subject",
+                  "inputParameters": {
+                    "http_request": {
+                      "body": {
+                        "variables": {
+                          "reference": "${get_referral_request.output.response.body.data.referralRequest.json.subject.reference}"
+                        },
+                        "query": "query getPatient($reference: String!) { patient(reference: $reference) { birthDate gender name { use text } telecom { system value use rank } } }"
+                      },
+                      "uri": "http://base-individuals.service.consul",
+                      "method": "POST",
+                      "headers": {
+                        "context": "${workflow.input.context}"
+                      }
+                    }
+                  },
+                  "type": "HTTP",
+                  "startDelay": 0,
+                  "optional": false
+                }
+              ],
+              [
+                {
+                  "name": "Rest Task",
+                  "taskReferenceName": "get_referral_request_requester",
+                  "inputParameters": {
+                    "http_request": {
+                      "body": {
+                        "variables": {
+                          "reference": "${get_referral_request.output.response.body.data.referralRequest.json.requester.agent.reference}"
+                        },
+                        "query": "query practitioner($reference: String!) { practitioner(reference:$reference) { json } }"
+                      },
+                      "uri": "http://base-individuals.service.consul",
+                      "method": "POST",
+                      "headers": {
+                        "context": "${workflow.input.context}"
+                      }
+                    }
+                  },
+                  "type": "HTTP",
+                  "startDelay": 0,
+                  "optional": false
+                }
+              ],
+              [
+                {
+                  "name": "Rest Task",
+                  "taskReferenceName": "get_referral_request_subject_coverages",
+                  "inputParameters": {
+                    "http_request": {
+                      "body": {
+                        "variables": {
+                          "where": {
+                            "beneficiary": "${get_referral_request.output.response.body.data.referralRequest.json.subject.reference}"
+                          }
+                        },
+                        "query": "query coverages($where: CoverageWhereInput) { coverages(where:$where, size:1) { payor { display } } }"
+                      },
+                      "uri": "http://financial-support.service.consul",
+                      "method": "POST",
+                      "headers": {
+                        "context": "${workflow.input.context}"
+                      }
+                    }
+                  },
+                  "type": "HTTP",
+                  "startDelay": 0,
+                  "optional": false
+                }
+              ],
+              [
+                {
+                  "name": "Rest Task",
+                  "taskReferenceName": "get_referral_request_context",
+                  "inputParameters": {
+                    "http_request": {
+                      "body": {
+                        "variables": {
+                          "reference": "${get_referral_request.output.response.body.data.referralRequest.json.context.reference}"
+                        },
+                        "query": "query encounter($reference: String!) { encounter(reference: $reference) { json } }"
+                      },
+                      "uri": "http://base-management.service.consul",
+                      "method": "POST",
+                      "headers": {
+                        "context": "${workflow.input.context}"
+                      }
+                    }
+                  },
+                  "type": "HTTP",
+                  "startDelay": 0,
+                  "optional": false
+                }
+              ]
+            ],
+            "startDelay": 0,
+            "optional": false
+          },
+          {
+            "name": "Join Task",
+            "taskReferenceName": "join_referral_request_resources",
+            "type": "JOIN",
+            "startDelay": 0,
+            "joinOn": [
+              "get_referral_request_properties",
+              "get_referral_request_subject",
+              "get_referral_request_context",
+              "get_referral_request_subject_coverages",
+              "get_referral_request_requester"
+            ],
+            "optional": false
+          }
+        ],
+        [
+          {
+            "name": "Rest Task",
+            "taskReferenceName": "get_workflow_settings",
+            "description": "Read a referal settings",
+            "inputParameters": {
+              "http_request": {
+                "body": {
+                  "variables": {
+                    "settingsContext": "${workflow.input.settingsContext}",
+                    "slug": "${workflow.input.settingsSlug}"
+                  },
+                  "query": "query getSettings($slug: String, $settingsContext: JSON) { getSettings(slug: $slug, settingsContext: $settingsContext) }"
+                },
+                "uri": "http://settings.service.consul/graphql",
+                "method": "POST",
+                "headers": {
+                  "context": "${workflow.input.context}"
+                }
+              }
+            },
+            "type": "HTTP",
+            "startDelay": 0,
+            "optional": false
+          }
+        ]
+      ],
+      "startDelay": 0,
+      "optional": false
+    },
+    {
+      "name": "Join Task",
+      "taskReferenceName": "join_document_inputs",
+      "type": "JOIN",
+      "startDelay": 0,
+      "joinOn": [
+        "get_referral_request",
+        "join_referral_request_resources",
+        "get_workflow_settings"
+      ],
+      "optional": false
+    },
+    {
+      "name": "Rest Task",
+      "taskReferenceName": "map_document_inputs",
+      "inputParameters": {
+        "http_request": {
+          "body": {
+            "variables": {
+              "templateName": "${workflow.input.templateName}",
+              "payload": {
+                "data": {
+                  "referralRequestContextOrderingPractitioner": "${join_referral_request_resources.output.get_referral_request_requester.response.body.data.practitioner.json}",
+                  "referralRequestContext": "${join_referral_request_resources.output.get_referral_request_context.response.body.data.encounter.json}",
+                  "referralRequestSubjectCoverages": "${join_referral_request_resources.output.get_referral_request_subject_coverages.response.body.data.coverages}",
+                  "referralRequest": "${join_document_inputs.output.get_referral_request.response.body.data.referralRequest.json}",
+                  "referralRequestSubject": "${join_referral_request_resources.output.get_referral_request_subject.response.body.data.patient}",
+                  "referralRequestProperties": "${join_referral_request_resources.output.get_referral_request_properties.response.body.data.basics[0].json}"
+                },
+                "settings": "${join_document_inputs.output.get_workflow_settings.response.body.data.getSettings}"
+              }
+            },
+            "query": "query getMappedPayload($templateName: String!, $payload: JSON){ getMappedPayload(templateName: $templateName, payload: $payload) }"
+          },
+          "uri": "http://foundation-ui-mapper.service.consul",
+          "method": "POST",
+          "headers": {
+            "context": "${workflow.input.context}"
+          }
+        }
+      },
+      "type": "HTTP",
+      "startDelay": 0,
+      "optional": false
+    },
+    {
+      "name": "Rest Task",
+      "taskReferenceName": "create_document",
+      "inputParameters": {
+        "http_request": {
+          "body": "${map_document_inputs.output.response.body}",
+          "uri": "http://eagle-documents-api.service.consul/pdf/fill",
+          "method": "POST"
+        }
+      },
+      "type": "HTTP",
+      "startDelay": 0,
+      "optional": false
+    },
+    {
+      "name": "Rest Task",
+      "taskReferenceName": "upload_document",
+      "inputParameters": {
+        "http_request": {
+          "body": {
+            "parentReference": "ReferralRequest/${workflow.input.resourceId}",
+            "documents": "${create_document.output.response.body}",
+            "patient": "${get_referral_request.output.response.body.data.referralRequest.json.subject.reference}"
+          },
+          "uri": "http://eagle-documents-api.service.consul/document_reference/fromUploadForm",
+          "method": "POST"
+        }
+      },
+      "type": "HTTP",
+      "startDelay": 0,
+      "optional": false
+    }
+  ],
+  "schemaVersion": 2,
+  "restartable": true,
+  "workflowStatusListenerEnabled": false
+}

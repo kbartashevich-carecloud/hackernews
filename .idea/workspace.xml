@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9e621bb-0bcc-4fac-ae2c-f62ab532e086" name="Default Changelist" comment="Testing changes added.&#10;&#10;- for testing cases.&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/prisma.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/prisma.graphql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/schema.graphql" beforeDir="false" afterPath="$PROJECT_DIR$/src/schema.graphql" afterDir="false" />
     </list>
+    <list id="f05c283a-f4ca-470c-9034-7cc382811873" name="Revert &quot;webstorm revert options&quot;" comment="Revert &quot;webstorm revert options&quot;&#10;&#10;This reverts commit 5d79863" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -21,26 +21,28 @@
     <session id="-1360840553">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.0" value="4" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="graphql" value="13" />
-          <entry key="js" value="10" />
-          <entry key="json" value="3" />
+          <entry key="graphql" value="14" />
+          <entry key="js" value="12" />
+          <entry key="json" value="4" />
           <entry key="patch" value="3" />
           <entry key="yml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="GraphQL" value="13" />
-          <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="10" />
+          <entry key="GraphQL" value="14" />
+          <entry key="JSON" value="4" />
+          <entry key="JavaScript" value="12" />
           <entry key="PATCH" value="3" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="YAML" value="3" />
@@ -49,17 +51,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="13" />
-          <entry key="graphql" value="366" />
-          <entry key="js" value="1647" />
-          <entry key="txt" value="90" />
+          <entry key="graphql" value="401" />
+          <entry key="js" value="1674" />
+          <entry key="txt" value="150" />
           <entry key="yml" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="GraphQL" value="366" />
-          <entry key="JavaScript" value="1647" />
-          <entry key="PLAIN_TEXT" value="103" />
+          <entry key="GraphQL" value="401" />
+          <entry key="JavaScript" value="1674" />
+          <entry key="PLAIN_TEXT" value="163" />
           <entry key="YAML" value="11" />
         </counts>
       </usages-collector>
@@ -79,15 +81,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/schema.graphql">
+        <entry file="file://$PROJECT_DIR$/cond.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+            <state relative-caret-position="420">
+              <caret line="259" column="5" lean-forward="true" selection-start-line="259" selection-start-column="5" selection-end-line="259" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&quot;&quot;&quot;All</find>
+      <find>Subscription</find>
+      <find>map</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Mutation</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/generated</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,6 +111,7 @@
         <entry key="$PROJECT_DIR$" value="development" />
       </map>
     </option>
+    <option name="RESET_MODE" value="SOFT" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="IdeDocumentHistory">
@@ -109,9 +125,10 @@
         <option value="$PROJECT_DIR$/src/resolvers/AuthPayload.js" />
         <option value="$PROJECT_DIR$/src/resolvers/Mutation.js" />
         <option value="$PROJECT_DIR$/src/resolvers/Subscription.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/utils.js" />
         <option value="$PROJECT_DIR$/src/schema.graphql" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/cond.json" />
       </list>
     </option>
   </component>
@@ -129,9 +146,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-1596" />
+    <option name="y" value="146" />
+    <option name="width" value="802" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -147,17 +166,6 @@
               <item name="hackernews" type="b2602c69:ProjectViewProjectNode" />
               <item name="hackernews" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hackernews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hackernews" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hackernews" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hackernews" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -167,10 +175,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resolvers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -202,6 +210,9 @@
       <workItem from="1543266443928" duration="8339000" />
       <workItem from="1558100562137" duration="1108000" />
       <workItem from="1558102732027" duration="2313000" />
+      <workItem from="1558206550187" duration="1612000" />
+      <workItem from="1558384778897" duration="3262000" />
+      <workItem from="1559667843816" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Testing changes added.&#10;&#10;- for testing cases.&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;">
       <created>1558031086113</created>
@@ -280,34 +291,62 @@
       <option name="project" value="LOCAL" />
       <updated>1558199426470</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Undo options webstorm&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;">
+      <created>1558206721377</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1558206721377</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Revert &quot;Undo options webstorm&quot;&#10;&#10;This reverts commit e20d5b0">
+      <created>1558206844968</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1558206844968</updated>
+    </task>
+    <task id="LOCAL-00014" summary="webstorm revert options&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;">
+      <created>1558206984410</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1558206984410</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Revert &quot;webstorm revert options&quot;&#10;&#10;This reverts commit 5d79863">
+      <created>1558207060658</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1558207060658</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12405000" />
+    <option name="totallyTimeSpent" value="21231000" />
   </component>
   <component name="TodoView" selected-index="1" />
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <frame x="-1920" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18604651" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1864139" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info active="true" id="Repositories" order="3" visible="true" weight="0.32964718" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.66058904" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.44972068" />
       <window_info anchor="bottom" id="GraphQL" order="9" weight="0.32997987" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.29593268" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -331,6 +370,30 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -358,10 +421,11 @@
               </option>
               <option name="FILTERS">
                 <map>
-                  <entry key="branch">
+                  <entry key="date">
                     <value>
                       <list>
-                        <option value="origin/feature" />
+                        <option value="" />
+                        <option value="1558065600000" />
                       </list>
                     </value>
                   </entry>
@@ -405,7 +469,11 @@
     <MESSAGE value="Checking web storm git integration.&#10;&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;" />
     <MESSAGE value="Testing changes added.&#10;&#10;- for testing cases.&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;" />
     <MESSAGE value="New things.&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="New things.&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;" />
+    <MESSAGE value="Undo options webstorm&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;" />
+    <MESSAGE value="Revert &quot;Undo options webstorm&quot;&#10;&#10;This reverts commit e20d5b0" />
+    <MESSAGE value="webstorm revert options&#10;&#10;Signed-off-by: Kiryl &lt;kbartashevich@carecloud.com&gt;" />
+    <MESSAGE value="Revert &quot;webstorm revert options&quot;&#10;&#10;This reverts commit 5d79863" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;webstorm revert options&quot;&#10;&#10;This reverts commit 5d79863" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -466,13 +534,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/shelf/Default_Changelist1/shelved.patch">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/shelf/Default_Changelist/shelved.patch">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -490,10 +551,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/generated/prisma.graphql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="141" column="45" lean-forward="true" selection-start-line="141" selection-start-column="45" selection-end-line="141" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/schema.graphql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+        <state relative-caret-position="510">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cond.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="259" column="5" lean-forward="true" selection-start-line="259" selection-start-column="5" selection-end-line="259" selection-end-column="5" />
         </state>
       </provider>
     </entry>
